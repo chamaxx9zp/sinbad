@@ -1,132 +1,132 @@
-"use client";
-import Logo from "./Logo";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+'use client'
 
-interface NavLink {
-  id: number;
-  url: string;
-  newTab: boolean;
-  text: string;
-}
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { X, Phone, Mail, MapPin, Twitter, Facebook, Search } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet"
 
-interface MobileNavLink extends NavLink {
-  closeMenu: () => void;
-}
-
-function NavLink({ url, text }: NavLink) {
-  const path = usePathname();
+export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <li className="flex">
-      <Link
-        href={url}
-        className={`flex items-center mx-4 -mb-1 border-b-2 dark:border-transparent ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
-        }}`}
-      >
-        {text}
-      </Link>
-    </li>
-  );
-}
-
-function MobileNavLink({ url, text, closeMenu }: MobileNavLink) {
-  const path = usePathname();
-  const handleClick = () => {
-    closeMenu();
-  };
-  return (
-    <a className="flex">
-      <Link
-        href={url}
-        onClick={handleClick}
-        className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-900 ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
-        }}`}
-      >
-        {text}
-      </Link>
-    </a>
-  );
-}
-
-export default function Navbar({
-  links,
-  logoUrl,
-  logoText,
-}: {
-  links: Array<NavLink>;
-  logoUrl: string | null;
-  logoText: string | null;
-}) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const closeMenu = () => {
-    setMobileMenuOpen(false);
-  };
-  return (
-    <div className="p-4 dark:bg-black dark:text-gray-100">
-      <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
-        <Logo src={logoUrl}>
-          {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
-        </Logo>
-
-        <div className="items-center flex-shrink-0 hidden lg:flex">
-          <ul className="items-stretch hidden space-x-3 lg:flex">
-            {links.map((item: NavLink) => (
-              <NavLink key={item.id} {...item} />
-            ))}
-          </ul>
-        </div>
-
-        <Dialog
-          as="div"
-          className="lg:hidden"
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-        >
-          <div className="fixed inset-0 z-40 bg-gray-600 bg-opacity-75" />{" "}
-          {/* Overlay */}
-          <Dialog.Panel className="fixed inset-y-0 rtl:left-0 ltr:right-0 z-50 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-inset sm:ring-white/10">
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Strapi</span>
-                {logoUrl && <img className="h-8 w-auto" src={logoUrl} alt="" />}
-              </a>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
+    <header className="w-full">
+      {/* Top bar */}
+      <div className="bg-black text-white py-2">
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <div className="hidden md:flex items-center space-x-6">
+            <Link href="tel:+94112632261" className="flex items-center space-x-2 text-sm hover:text-gray-300">
+              <Phone className="h-4 w-4" />
+              <span>+94 112 632261</span>
+            </Link>
+            <Link href="mailto:sindbadsltnet.lk" className="flex items-center space-x-2 text-sm hover:text-gray-300">
+              <Mail className="h-4 w-4" />
+              <span>sindbadsltnet.lk</span>
+            </Link>
+            <div className="flex items-center space-x-2 text-sm">
+              <MapPin className="h-4 w-4" />
+              <span>No: 47, 10th Lane,Off Borupana Road, Ratmalana, Sri Lanka</span>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-700">
-                <div className="space-y-2 py-6">
-                  {links.map((item) => (
-                    <MobileNavLink
-                      key={item.id}
-                      closeMenu={closeMenu}
-                      {...item}
-                    />
-                  ))}
-                </div>
+          </div>
+          <div className="flex items-center space-x-4 ml-auto">
+            <Link href="https://twitter.com" className="text-white hover:text-gray-300">
+              <Twitter className="h-5 w-5" />
+            </Link>
+            <Link href="https://facebook.com" className="text-white hover:text-gray-300">
+              <Facebook className="h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Main header */}
+      <div className="bg-[#FFD700] py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="flex-shrink-0">
+              <Image
+                src="/placeholder.svg"
+                alt="Sindbad Logo"
+                width={120}
+                height={80}
+                className="h-16 w-auto"
+              />
+            </Link>
+
+            {/* Desktop Navigation - hidden on mobile */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link href="/" className="text-black hover:text-red-600 font-medium">
+                Home
+              </Link>
+              <Link href="/products" className="text-black hover:text-red-600 font-medium">
+                Products
+              </Link>
+              <Link href="/factory" className="text-black hover:text-red-600 font-medium">
+                Factory
+              </Link>
+              <Link href="/about" className="text-black hover:text-red-600 font-medium">
+                About Us
+              </Link>
+              <Link href="/contact" className="text-black hover:text-red-600 font-medium">
+                Contact Us
+              </Link>
+            </nav>
+
+            {/* Search */}
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center">
+                <Input
+                  type="search"
+                  placeholder="Enter your keyword..."
+                  className="w-[200px] lg:w-[300px] rounded-r-none"
+                />
+                <Button className="rounded-l-none bg-red-600 hover:bg-red-700">
+                  Search
+                </Button>
               </div>
             </div>
-          </Dialog.Panel>
-        </Dialog>
-        <button
-          className="p-4 lg:hidden"
-          onClick={() => setMobileMenuOpen(true)}
-        >
-          <Bars3Icon className="h-7 w-7 text-gray-100" aria-hidden="true" />
-        </button>
+
+            {/* Mobile menu button - visible only on mobile */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <X className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="top" className="w-full h-screen bg-[#FFD700]">
+                <div className="flex flex-col items-center justify-center h-full space-y-8">
+                  <Link href="/" className="text-2xl font-medium hover:text-red-600">
+                    Home
+                  </Link>
+                  <Link href="/products" className="text-2xl font-medium hover:text-red-600">
+                    Products
+                  </Link>
+                  <Link href="/factory" className="text-2xl font-medium hover:text-red-600">
+                    Factory
+                  </Link>
+                  <Link href="/about" className="text-2xl font-medium hover:text-red-600">
+                    About Us
+                  </Link>
+                  <Link href="/contact" className="text-2xl font-medium hover:text-red-600">
+                    Contact Us
+                  </Link>
+                </div>
+                <SheetClose className="absolute right-4 top-4">
+                  <X className="h-6 w-6" />
+                </SheetClose>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    </header>
+  )
 }
