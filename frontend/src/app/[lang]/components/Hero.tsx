@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link";
 import Image from "next/image";
 import HighlightedText from "./HighlightedText";
@@ -34,48 +36,44 @@ interface HeroProps {
 }
 
 export default function Hero({ data }: HeroProps) {
+  console.dir(data);
   const imgUrl = getStrapiMedia(data.picture.data.attributes.url);
 
   return (
-    <section className="dark:bg-black dark:text-gray-100">
-      <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-        <div className="flex flex-col justify-center p-6 text-center rounded-lg lg:max-w-md xl:max-w-lg lg:text-left">
-          <HighlightedText
-            text={data.title}
-            tag="h1"
-            className="text-5xl font-bold leading-none sm:text-6xl mb-8"
-            color="dark:text-violet-400"
-          />
+    <section className="relative w-full h-[100vh] overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${imgUrl})` }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
 
-          <HighlightedText
-            text={data.description}
-            tag="p"
-            className="tmt-6 mb-8 text-lg sm:mb-12"
-            color="dark:text-violet-400"
-          />
-          <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-            {data.buttons.map((button: Button, index: number) => (
-              <Link
-                key={index}
-                href={button.url}
-                target={button.newTab ? "_blank" : "_self"}
-                className={renderButtonStyle(button.type)}
-              >
-                {button.text}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-          <Image
-            src={imgUrl || ""}
-            alt={
-              data.picture.data.attributes.alternativeText || "none provided"
-            }
-            className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 "
-            width={600}
-            height={600}
-          />
+      {/* Content */}
+      <div className="relative container mx-auto flex flex-col justify-center items-center h-full text-center px-6 md:px-8 lg:px-16">
+        <HighlightedText
+          text={data.title}
+          tag="h1"
+          className="text-5xl font-bold leading-none sm:text-6xl lg:text-7xl mb-8 text-white"
+        />
+
+        <HighlightedText
+          text={data.description}
+          tag="p"
+          className="mt-6 mb-8 text-lg sm:mb-12 text-white max-w-3xl"
+        />
+
+        <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4">
+          {data.buttons.map((button: Button, index: number) => (
+            <Link
+              key={button.id}
+              href={button.url}
+              target={button.newTab ? "_blank" : "_self"}
+              className={renderButtonStyle(button.type)}
+            >
+              {button.text}
+            </Link>
+          ))}
         </div>
       </div>
     </section>
