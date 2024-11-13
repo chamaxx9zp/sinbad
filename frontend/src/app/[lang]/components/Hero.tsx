@@ -5,6 +5,7 @@ import Image from "next/image";
 import HighlightedText from "./HighlightedText";
 import { getStrapiMedia } from "../utils/api-helpers";
 import { renderButtonStyle } from "../utils/render-button-style";
+import { ArrowRight } from "lucide-react"
 
 interface Button {
   id: string;
@@ -36,7 +37,7 @@ interface HeroProps {
 }
 
 export default function Hero({ data }: HeroProps) {
-  console.dir(data);
+  // console.dir(data);
   const imgUrl = getStrapiMedia(data.picture.data.attributes.url);
 
   return (
@@ -69,9 +70,10 @@ export default function Hero({ data }: HeroProps) {
               key={button.id}
               href={button.url}
               target={button.newTab ? "_blank" : "_self"}
-              className={renderButtonStyle(button.type)}
+              className={`${renderButtonStyle(button.type)} flex items-center space-x-2`}
             >
               {button.text}
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           ))}
         </div>

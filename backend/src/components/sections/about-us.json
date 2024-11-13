@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_about_uses",
+  "info": {
+    "displayName": "AboutUs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SubTitle": {
+      "type": "string"
+    },
+    "MainTitle": {
+      "type": "string"
+    },
+    "Description1": {
+      "type": "text"
+    },
+    "Description2": {
+      "type": "text"
+    },
+    "AboutRow": {
+      "displayName": "AboutRow",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.about-row"
+    },
+    "AboutBtn": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.button-link"
+    }
+  }
+}

@@ -76,20 +76,6 @@ export interface SharedMedia extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 export interface SectionsTestimonialsGroup extends Schema.Component {
   collectionName: 'components_slices_testimonials_groups';
   info: {
@@ -127,6 +113,18 @@ export interface SectionsPricing extends Schema.Component {
   attributes: {
     title: Attribute.String;
     plans: Attribute.Component<'elements.plan', true>;
+  };
+}
+
+export interface SectionsOurProducts extends Schema.Component {
+  collectionName: 'components_sections_our_products';
+  info: {
+    displayName: 'OurProducts';
+  };
+  attributes: {
+    SubTitle: Attribute.String;
+    MainTitle: Attribute.String;
+    OurProducts: Attribute.Component<'elements.our-product', true>;
   };
 }
 
@@ -238,6 +236,36 @@ export interface SectionsBottomActions extends Schema.Component {
     title: Attribute.String;
     buttons: Attribute.Component<'links.button-link', true>;
     description: Attribute.Text;
+  };
+}
+
+export interface SectionsAboutUs extends Schema.Component {
+  collectionName: 'components_sections_about_uses';
+  info: {
+    displayName: 'AboutUs';
+    description: '';
+  };
+  attributes: {
+    SubTitle: Attribute.String;
+    MainTitle: Attribute.String;
+    Description1: Attribute.Text;
+    Description2: Attribute.Text;
+    AboutRow: Attribute.Component<'elements.about-row', true>;
+    AboutBtn: Attribute.Component<'links.button-link'>;
+  };
+}
+
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -384,6 +412,18 @@ export interface ElementsPlan extends Schema.Component {
   };
 }
 
+export interface ElementsOurProduct extends Schema.Component {
+  collectionName: 'components_elements_our_products';
+  info: {
+    displayName: 'OurProduct';
+  };
+  attributes: {
+    ProductName: Attribute.String;
+    ProductBtn: Attribute.Component<'links.button-link'>;
+    picture: Attribute.Component<'shared.media'>;
+  };
+}
+
 export interface ElementsNotificationBanner extends Schema.Component {
   collectionName: 'components_elements_notification_banners';
   info: {
@@ -475,6 +515,17 @@ export interface ElementsFeatureColumn extends Schema.Component {
   };
 }
 
+export interface ElementsAboutRow extends Schema.Component {
+  collectionName: 'components_elements_about_rows';
+  info: {
+    displayName: 'AboutRow';
+  };
+  attributes: {
+    AboutRowTitle: Attribute.String;
+    AboutRowDescription: Attribute.Text;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -484,10 +535,10 @@ declare module '@strapi/types' {
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
-      'meta.metadata': MetaMetadata;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'sections.rich-text': SectionsRichText;
       'sections.pricing': SectionsPricing;
+      'sections.our-products': SectionsOurProducts;
       'sections.lead-form': SectionsLeadForm;
       'sections.large-video': SectionsLargeVideo;
       'sections.hero': SectionsHero;
@@ -496,6 +547,8 @@ declare module '@strapi/types' {
       'sections.feature-rows-group': SectionsFeatureRowsGroup;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.bottom-actions': SectionsBottomActions;
+      'sections.about-us': SectionsAboutUs;
+      'meta.metadata': MetaMetadata;
       'links.social-link': LinksSocialLink;
       'links.link': LinksLink;
       'links.button': LinksButton;
@@ -505,12 +558,14 @@ declare module '@strapi/types' {
       'layout.footer': LayoutFooter;
       'elements.testimonial': ElementsTestimonial;
       'elements.plan': ElementsPlan;
+      'elements.our-product': ElementsOurProduct;
       'elements.notification-banner': ElementsNotificationBanner;
       'elements.logos': ElementsLogos;
       'elements.footer-section': ElementsFooterSection;
       'elements.feature': ElementsFeature;
       'elements.feature-row': ElementsFeatureRow;
       'elements.feature-column': ElementsFeatureColumn;
+      'elements.about-row': ElementsAboutRow;
     }
   }
 }

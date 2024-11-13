@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_about_rows",
+  "info": {
+    "displayName": "AboutRow"
+  },
+  "options": {},
+  "attributes": {
+    "AboutRowTitle": {
+      "type": "string"
+    },
+    "AboutRowDescription": {
+      "type": "text"
+    }
+  }
+}

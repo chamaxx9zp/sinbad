@@ -34,6 +34,25 @@ const populate = {
       submitButton: {
         populate: true,
       },
+      button: {
+        populate: true,
+      },
+      AboutRow: {
+        populate: true,
+      },
+      aboutimg: {
+        fields: ["url", "alternativeText", "caption", "width", "height"],
+      },
+      OurProducts: {
+        populate: {
+          picture: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+          ProductBtn: {
+            populate: true,
+          },
+        },
+      },
     },
   },
   seo: {

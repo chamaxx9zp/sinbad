@@ -25,6 +25,7 @@ interface NavigationData {
 }
 
 export default function Navigation(data: NavigationData) {
+  // console.dir(data)
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -95,7 +96,7 @@ export default function Navigation(data: NavigationData) {
                   placeholder="Enter your keyword..."
                   className="w-[150px] lg:w-[200px] rounded-3xl bg-white md:mr-2 md:h-10"
                 />
-                <Button className="rounded-3xl bg-[#ED1B23] hover:bg-[#C99A5C] text-white md:h-10">
+                <Button className="rounded-3xl bg-[#ED1B23] text-white md:h-10">
                   Search
                 </Button>
               </div>

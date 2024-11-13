@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_our_products",
+  "info": {
+    "displayName": "OurProduct"
+  },
+  "options": {},
+  "attributes": {
+    "ProductName": {
+      "type": "string"
+    },
+    "ProductBtn": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.button-link"
+    },
+    "picture": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.media"
+    }
+  }
+}
