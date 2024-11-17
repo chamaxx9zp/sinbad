@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_tea_benifits",
+  "info": {
+    "displayName": "TeaBenifit"
+  },
+  "options": {},
+  "attributes": {
+    "TeaBenifit": {
+      "type": "string"
+    }
+  }
+}

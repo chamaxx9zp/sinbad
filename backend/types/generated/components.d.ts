@@ -91,6 +91,16 @@ export interface SectionsTestimonialsGroup extends Schema.Component {
   };
 }
 
+export interface SectionsTeaBenifit extends Schema.Component {
+  collectionName: 'components_sections_tea_benifits';
+  info: {
+    displayName: 'TeaBenifit';
+  };
+  attributes: {
+    TeaBenifit: Attribute.String;
+  };
+}
+
 export interface SectionsRichText extends Schema.Component {
   collectionName: 'components_sections_rich_texts';
   info: {
@@ -436,6 +446,20 @@ export interface ElementsAboutRow extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface LinksSocialLink extends Schema.Component {
   collectionName: 'components_links_social_links';
   info: {
@@ -542,20 +566,6 @@ export interface LayoutFooter extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -566,6 +576,7 @@ declare module '@strapi/types' {
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
       'sections.testimonials-group': SectionsTestimonialsGroup;
+      'sections.tea-benifit': SectionsTeaBenifit;
       'sections.rich-text': SectionsRichText;
       'sections.product-gallery': SectionsProductGallery;
       'sections.pricing': SectionsPricing;
@@ -591,6 +602,7 @@ declare module '@strapi/types' {
       'elements.feature-row': ElementsFeatureRow;
       'elements.feature-column': ElementsFeatureColumn;
       'elements.about-row': ElementsAboutRow;
+      'meta.metadata': MetaMetadata;
       'links.social-link': LinksSocialLink;
       'links.link': LinksLink;
       'links.button': LinksButton;
@@ -598,7 +610,6 @@ declare module '@strapi/types' {
       'layout.navbar': LayoutNavbar;
       'layout.logo': LayoutLogo;
       'layout.footer': LayoutFooter;
-      'meta.metadata': MetaMetadata;
     }
   }
 }
