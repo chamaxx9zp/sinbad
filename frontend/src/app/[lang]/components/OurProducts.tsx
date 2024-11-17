@@ -15,27 +15,27 @@ interface Product {
 const products: Product[] = [
   {
     title: "Herbal Tea",
-    image: "/placeholder.svg?height=600&width=400",
-    href: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FPARACITY-Glass-Teapot-Removable-Borosilicate%2Fdp%2FB0CD3S43ZG&psig=AOvVaw0DcGr3KrZsHBibkRVwLlvv&ust=1731867433546000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMDFu4274YkDFQAAAAAdAAAAABAE"
+    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    href: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
     title: "Green Tea",
-    image: "/placeholder.svg?height=600&width=400",
+    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     href: "/products/green-tea"
   },
   {
     title: "Flavoured Tea",
-    image: "/placeholder.svg?height=600&width=400",
+    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     href: "/products/flavoured-tea"
   },
   {
     title: "Special Tea",
-    image: "/placeholder.svg?height=600&width=400",
+    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     href: "/products/special-tea"
   },
   {
     title: "Other Tea",
-    image: "/placeholder.svg?height=600&width=400",
+    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     href: "/products/other-tea"
   }
 ]
