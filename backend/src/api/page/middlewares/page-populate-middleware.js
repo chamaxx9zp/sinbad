@@ -45,9 +45,6 @@ const populate = {
       },
       OurProducts: {
         populate: {
-          picture: {
-            fields: ["url", "alternativeText", "caption", "width", "height"],
-          },
           ProductBtn: {
             populate: true,
           },

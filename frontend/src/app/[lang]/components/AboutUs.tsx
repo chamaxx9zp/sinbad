@@ -6,7 +6,7 @@ import { renderButtonStyle } from "../utils/render-button-style";
 import Link from "next/link"
 
 function AboutUs(data:any) {
-    console.dir(data)
+    // console.dir(data)
   return (
     <section className="relative w-full bg-[url('/placeholder.svg')] bg-cover bg-center py-16 md:py-24">
     {/* Background Overlay */}

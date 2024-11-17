@@ -103,6 +103,16 @@ export interface SectionsRichText extends Schema.Component {
   };
 }
 
+export interface SectionsProductGallery extends Schema.Component {
+  collectionName: 'components_sections_product_galleries';
+  info: {
+    displayName: 'ProductGallery';
+  };
+  attributes: {
+    ProductGallery: Attribute.String;
+  };
+}
+
 export interface SectionsPricing extends Schema.Component {
   collectionName: 'components_sections_pricings';
   info: {
@@ -537,6 +547,7 @@ declare module '@strapi/types' {
       'shared.media': SharedMedia;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'sections.rich-text': SectionsRichText;
+      'sections.product-gallery': SectionsProductGallery;
       'sections.pricing': SectionsPricing;
       'sections.our-products': SectionsOurProducts;
       'sections.lead-form': SectionsLeadForm;

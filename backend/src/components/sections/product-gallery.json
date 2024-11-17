@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_product_galleries",
+  "info": {
+    "displayName": "ProductGallery"
+  },
+  "options": {},
+  "attributes": {
+    "ProductGallery": {
+      "type": "string"
+    }
+  }
+}
