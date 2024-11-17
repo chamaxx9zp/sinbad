@@ -1069,7 +1069,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.about-us',
         'sections.our-products',
         'sections.product-gallery',
-        'sections.best-seller'
+        'sections.best-seller',
+        'sections.featured-section'
       ]
     > &
       Attribute.SetPluginOptions<{
