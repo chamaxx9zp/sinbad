@@ -41,7 +41,8 @@
         "sections.heading",
         "sections.about-us",
         "sections.our-products",
-        "sections.product-gallery"
+        "sections.product-gallery",
+        "sections.best-seller"
       ],
       "pluginOptions": {
         "i18n": {

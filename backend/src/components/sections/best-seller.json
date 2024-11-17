@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_best_sellers",
+  "info": {
+    "displayName": "BestSeller"
+  },
+  "options": {},
+  "attributes": {
+    "BestSeller": {
+      "type": "string"
+    }
+  }
+}
