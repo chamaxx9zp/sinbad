@@ -40,12 +40,18 @@ const populate = {
       AboutRow: {
         populate: true,
       },
+      AboutBtn: {
+        populate: true,
+      },
       aboutimg: {
         fields: ["url", "alternativeText", "caption", "width", "height"],
       },
-      OurProducts: {
+      Product: {
         populate: {
-          ProductBtn: {
+          picture: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+          AboutBtn: {
             populate: true,
           },
         },

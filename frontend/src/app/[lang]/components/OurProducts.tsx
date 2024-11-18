@@ -1,57 +1,61 @@
 'use client'
+
 import React from 'react'
 import { renderButtonStyle } from "../utils/render-button-style";
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { getStrapiMedia } from "../utils/api-helpers";
 
 interface Product {
-  title: string
-  image: string
-  href: string
+  id: number;
+  ProductName: string;
+  picture: {
+    data: {
+      attributes: {
+        url: string;
+        alternativeText: string | null;
+      };
+    };
+  };
+  AboutBtn: {
+    id: number;
+    url: string;
+    newTab: boolean;
+    text: string;
+    type: string;
+  };
 }
 
-const products: Product[] = [
-  {
-    title: "Herbal Tea",
-    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    href: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  },
-  {
-    title: "Green Tea",
-    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    href: "/products/green-tea"
-  },
-  {
-    title: "Flavoured Tea",
-    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    href: "/products/flavoured-tea"
-  },
-  {
-    title: "Special Tea",
-    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    href: "/products/special-tea"
-  },
-  {
-    title: "Other Tea",
-    image: "https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    href: "/products/other-tea"
-  }
-]
+interface OurProductsProps {
+  data: {
+    id: number;
+    __component: string;
+    SubTitle: string;
+    MainTitle: string;
+    Product: Product[];
+  };
+}
 
+function OurProducts({ data }: OurProductsProps) {
+  // Dynamically map over the products from Strapi data
+  const products = data.Product.map((product) => {
+    const imgUrl = getStrapiMedia(product.picture.data.attributes.url);
+    return {
+      title: product.ProductName,
+      image: imgUrl,
+      href: product.AboutBtn.url,
+    };
+  });
 
-function OurProducts(data:any) {
-    // console.dir(data)
   return (
     <section className="w-full py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-lg font-medium mb-4">Our Products</h2>
-          <h3 className="text-4xl md:text-5xl font-bold">
-            THE ART OF TEA PRODUCTION
-          </h3>
+          <h2 className="text-lg font-medium mb-4">{data.SubTitle}</h2>
+          <h3 className="text-4xl md:text-5xl font-bold">{data.MainTitle}</h3>
         </div>
 
         {/* Products Grid */}
@@ -86,7 +90,7 @@ function OurProducts(data:any) {
                   <Button 
                     className="bg-red-600 hover:bg-red-700 text-white rounded-md"
                   >
-                    View More
+                    {product.title === "Herbal Tea" ? product.title : "View More"}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -96,7 +100,7 @@ function OurProducts(data:any) {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default OurProducts
+export default OurProducts;

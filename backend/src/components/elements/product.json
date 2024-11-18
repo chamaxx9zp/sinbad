@@ -1,18 +1,12 @@
 {
-  "collectionName": "components_elements_our_products",
+  "collectionName": "components_elements_products",
   "info": {
-    "displayName": "OurProduct",
-    "description": ""
+    "displayName": "Product"
   },
   "options": {},
   "attributes": {
     "ProductName": {
       "type": "string"
-    },
-    "ProductBtn": {
-      "type": "component",
-      "repeatable": false,
-      "component": "links.button-link"
     },
     "picture": {
       "allowedTypes": [
@@ -23,6 +17,11 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "AboutBtn": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.button-link"
     }
   }
 }

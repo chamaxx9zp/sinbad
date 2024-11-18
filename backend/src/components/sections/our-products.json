@@ -1,7 +1,8 @@
 {
   "collectionName": "components_sections_our_products",
   "info": {
-    "displayName": "OurProducts"
+    "displayName": "OurProducts",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,11 +12,11 @@
     "MainTitle": {
       "type": "string"
     },
-    "OurProducts": {
-      "displayName": "OurProduct",
+    "Product": {
+      "displayName": "Product",
       "type": "component",
       "repeatable": true,
-      "component": "elements.our-product"
+      "component": "elements.product"
     }
   }
 }
