@@ -16,40 +16,40 @@ function ProductGallery() {
           <div className="space-y-6">
             {/* Product FAQ Card */}
             <Link href="/faq" className="block">
-              <div className="bg-[#796B5F] p-8 transition-transform hover:scale-105">
+              <div className="bg-[#796B5F] py-20 text-center">
                 <h3 className="text-3xl font-bold text-white mb-4">PRODUCT FAQ</h3>
                 <p className="text-white/90">General product related articles</p>
               </div>
             </Link>
             
             {/* Tea Pouring Image */}
-            <div className="relative aspect-square">
+            <div className="relative w-full h-[300px]"> {/* Set custom height */}
               <Image
                 src="https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Tea pouring ceremony"
-                fill
+                layout="fill"
                 className="object-cover"
                 sizes="(min-width: 768px) 33vw, 100vw"
               />
-            </div>
+             </div>
           </div>
 
           {/* Middle Column */}
           <div className="space-y-6">
             {/* Tea Spoon Image */}
-            <div className="relative aspect-square">
+            <div className="relative w-full h-[300px]"> {/* Set custom height */}
               <Image
                 src="https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Tea spoon with leaves"
-                fill
+                alt="Tea pouring ceremony"
+                layout="fill"
                 className="object-cover"
                 sizes="(min-width: 768px) 33vw, 100vw"
               />
-            </div>
+             </div>
 
             {/* New Flavors Card */}
             <Link href="/new-flavors" className="block">
-              <div className="bg-[#3F612D] p-8 transition-transform hover:scale-105">
+              <div className="bg-[#3F612D] py-20 text-center">
                 <h3 className="text-3xl font-bold text-white mb-4">NEW FLAVORS</h3>
                 <p className="text-white/90">Can be found our new products</p>
               </div>
@@ -60,22 +60,22 @@ function ProductGallery() {
           <div className="space-y-6">
             {/* How to Buy Card */}
             <Link href="/how-to-buy" className="block">
-              <div className="bg-[#C4A484] p-8 transition-transform hover:scale-105">
+              <div className="bg-[#C4A484] py-20 text-center">
                 <h3 className="text-3xl font-bold text-white mb-4">HOW TO BUY</h3>
                 <p className="text-white/90">Find our location and contact details</p>
               </div>
             </Link>
 
             {/* Tea Cup Image */}
-            <div className="relative aspect-square">
+            <div className="relative w-full h-[300px]"> {/* Set custom height */}
               <Image
                 src="https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Hands holding tea cup"
-                fill
+                alt="Tea pouring ceremony"
+                layout="fill"
                 className="object-cover"
                 sizes="(min-width: 768px) 33vw, 100vw"
               />
-            </div>
+             </div>
           </div>
         </div>
       </div>
