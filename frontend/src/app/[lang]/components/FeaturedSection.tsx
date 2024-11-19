@@ -1,52 +1,76 @@
-import React from 'react'
-import { Clock, Headphones, Truck } from 'lucide-react'
+'use client';
 
-interface Feature {
-  icon: JSX.Element
-  title: string
-  description: string
+import React from 'react';
+import Image from 'next/image';
+import { getStrapiMedia } from "../utils/api-helpers";
+import bgimg from '../../../../../sinbad assets/Sindbad Assets/About us bg image.jpg';
+
+// Define interfaces for type safety
+interface IconData {
+  id: number;
+  attributes: {
+    url: string;
+    alternativeText: string | null;
+    caption: string | null;
+    width: number;
+    height: number;
+  };
 }
 
-const features: Feature[] = [
-  {
-    icon: <Truck className="w-8 h-8 text-black" />,
-    title: "Expedited Shipping",
-    description: "We proudly offer worldwide shipping, ensuring that our premium teas can be enjoyed no matter where you are"
-  },
-  {
-    icon: <Clock className="w-8 h-8 text-black" />,
-    title: "Product Dispatch",
-    description: "We are pleased to inform you that your order is being prepared for dispatch and will be shipped out soon."
-  },
-  {
-    icon: <Headphones className="w-8 h-8 text-black" />,
-    title: "Customer Support",
-    description: "Our 24/7 support system ensures that help is always available whenever you need it, day or night."
-  }
-]
+interface FeaturedColumn {
+  id: number;
+  FeaturedHead: string;
+  FeaturedDescription: string;
+  Icon: {
+    data: IconData;
+  };
+}
 
-function FeaturedSection() {
+interface FeaturedSectionProps {
+  data: {
+    FeaturedSection: string;
+    FeaturedColumn: FeaturedColumn[];
+  };
+}
+
+function FeaturedSection({ data }: FeaturedSectionProps) {
+  const { FeaturedSection, FeaturedColumn } = data;
+
   return (
-    <section className="w-full py-16 md:py-24 bg-[url('https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center">
+    <section className="relative w-full py-16 md:py-24">
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src={bgimg}
+          alt="Background Image"
+          layout="fill"
+          objectFit="cover"
+          placeholder="blur" // Optional: Adds a blur placeholder
+        />
+      </div>
+
       <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{FeaturedSection}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
+          {FeaturedColumn.map((feature) => (
+            <div key={feature.id} className="flex flex-col items-center text-center">
               <div className="w-20 h-20 rounded-full bg-[#FFD700] flex items-center justify-center mb-6">
-                {feature.icon}
+                <Image
+                  src={getStrapiMedia(feature.Icon.data.attributes.url) || ""}
+                  alt={feature.Icon.data.attributes.alternativeText || feature.FeaturedHead}
+                  width={feature.Icon.data.attributes.width * 4} // Scale width for better display
+                  height={feature.Icon.data.attributes.height * 4} // Scale height for better display
+                  className="object-contain hover:fill-red-500 transition-colors duration-300"
+                />
               </div>
-              <h3 className="text-2xl font-bold mb-4">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 max-w-sm">
-                {feature.description}
-              </p>
+              <h3 className="text-2xl font-bold mb-4">{feature.FeaturedHead}</h3>
+              <p className="text-gray-600 max-w-sm">{feature.FeaturedDescription}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FeaturedSection
+export default FeaturedSection;

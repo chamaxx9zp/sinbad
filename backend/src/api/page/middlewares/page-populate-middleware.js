@@ -73,6 +73,13 @@ const populate = {
           },
         },
       },
+      FeaturedColumn: {
+        populate: {
+          Icon: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+        },
+      },
     },
   },
   seo: {

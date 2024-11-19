@@ -231,9 +231,11 @@ export interface SectionsFeaturedSection extends Schema.Component {
   collectionName: 'components_sections_featured_sections';
   info: {
     displayName: 'FeaturedSection';
+    description: '';
   };
   attributes: {
     FeaturedSection: Attribute.String;
+    FeaturedColumn: Attribute.Component<'elements.featured-column', true>;
   };
 }
 
@@ -548,6 +550,18 @@ export interface ElementsFooterSection extends Schema.Component {
   };
 }
 
+export interface ElementsFeaturedColumn extends Schema.Component {
+  collectionName: 'components_elements_featured_columns';
+  info: {
+    displayName: 'FeaturedColumn';
+  };
+  attributes: {
+    Icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    FeaturedHead: Attribute.String;
+    FeaturedDescription: Attribute.Text;
+  };
+}
+
 export interface ElementsFeature extends Schema.Component {
   collectionName: 'components_elements_features';
   info: {
@@ -661,6 +675,7 @@ declare module '@strapi/types' {
       'elements.notification-banner': ElementsNotificationBanner;
       'elements.logos': ElementsLogos;
       'elements.footer-section': ElementsFooterSection;
+      'elements.featured-column': ElementsFeaturedColumn;
       'elements.feature': ElementsFeature;
       'elements.feature-row': ElementsFeatureRow;
       'elements.feature-column': ElementsFeatureColumn;

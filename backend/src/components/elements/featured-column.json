@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elements_featured_columns",
+  "info": {
+    "displayName": "FeaturedColumn"
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "FeaturedHead": {
+      "type": "string"
+    },
+    "FeaturedDescription": {
+      "type": "text"
+    }
+  }
+}
