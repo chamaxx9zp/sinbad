@@ -117,9 +117,15 @@ export interface SectionsProductGallery extends Schema.Component {
   collectionName: 'components_sections_product_galleries';
   info: {
     displayName: 'ProductGallery';
+    description: '';
   };
   attributes: {
     ProductGallery: Attribute.String;
+    picture: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ProductGalleryRow: Attribute.Component<
+      'elements.product-gallery-row',
+      true
+    >;
   };
 }
 
@@ -444,6 +450,18 @@ export interface ElementsProduct extends Schema.Component {
   };
 }
 
+export interface ElementsProductGalleryRow extends Schema.Component {
+  collectionName: 'components_elements_product_gallery_rows';
+  info: {
+    displayName: 'ProductGalleryRow';
+  };
+  attributes: {
+    ProductTitle: Attribute.String;
+    ProductDesc: Attribute.Text;
+    ProductImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface ElementsPlan extends Schema.Component {
   collectionName: 'components_elements_plans';
   info: {
@@ -617,6 +635,7 @@ declare module '@strapi/types' {
       'layout.footer': LayoutFooter;
       'elements.testimonial': ElementsTestimonial;
       'elements.product': ElementsProduct;
+      'elements.product-gallery-row': ElementsProductGalleryRow;
       'elements.plan': ElementsPlan;
       'elements.our-product': ElementsOurProduct;
       'elements.notification-banner': ElementsNotificationBanner;

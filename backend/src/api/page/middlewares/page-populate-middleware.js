@@ -56,6 +56,13 @@ const populate = {
           },
         },
       },
+      ProductGalleryRow: {
+        populate: {
+          ProductImage: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+        },
+      },
     },
   },
   seo: {

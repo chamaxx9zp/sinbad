@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elements_product_gallery_rows",
+  "info": {
+    "displayName": "ProductGalleryRow"
+  },
+  "options": {},
+  "attributes": {
+    "ProductTitle": {
+      "type": "string"
+    },
+    "ProductDesc": {
+      "type": "text"
+    },
+    "ProductImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

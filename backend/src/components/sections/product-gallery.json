@@ -1,12 +1,30 @@
 {
   "collectionName": "components_sections_product_galleries",
   "info": {
-    "displayName": "ProductGallery"
+    "displayName": "ProductGallery",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "ProductGallery": {
       "type": "string"
+    },
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ProductGalleryRow": {
+      "displayName": "ProductGalleryRow",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.product-gallery-row"
     }
   }
 }
