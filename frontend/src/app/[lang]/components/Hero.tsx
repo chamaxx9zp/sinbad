@@ -5,7 +5,7 @@ import Image from "next/image";
 import HighlightedText from "./HighlightedText";
 import { getStrapiMedia } from "../utils/api-helpers";
 import { renderButtonStyle } from "../utils/render-button-style";
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react";
 
 interface Button {
   id: string;
@@ -37,21 +37,25 @@ interface HeroProps {
 }
 
 export default function Hero({ data }: HeroProps) {
-  // console.dir(data);
   const imgUrl = getStrapiMedia(data.picture.data.attributes.url);
 
   return (
     <section className="relative w-full h-[100vh] overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${imgUrl})` }}
-      >
+      {/* Background Image using Next.js Image component */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={imgUrl || ""}
+          alt={data.picture.data.attributes.alternativeText || 'Hero background image'}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          priority
+        />
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto flex flex-col justify-center items-center h-full text-center px-6 md:px-8 lg:px-16">
+      <div className="relative container mx-auto flex flex-col justify-center items-center h-full text-center px-6 md:px-8 lg:px-16 z-10">
         <HighlightedText
           text={data.title}
           tag="h1"
@@ -65,7 +69,7 @@ export default function Hero({ data }: HeroProps) {
         />
 
         <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4">
-          {data.buttons.map((button: Button, index: number) => (
+          {data.buttons.map((button: Button) => (
             <Link
               key={button.id}
               href={button.url}
