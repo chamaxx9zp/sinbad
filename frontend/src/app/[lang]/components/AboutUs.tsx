@@ -3,7 +3,9 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Heart, Store, Award } from "lucide-react"
 import { renderButtonStyle } from "../utils/render-button-style"
+import Image from "next/image";
 import Link from "next/link"
+import bgimg from '../../../../../sinbad assets/Sindbad Assets/About us bg image.jpg'
 
 // Define the structure of the data coming from the console output
 interface AboutRow {
@@ -32,11 +34,19 @@ interface AboutUsProps {
 }
 
 function AboutUs({ data }: AboutUsProps) {
-  
   return (
-    <section className="relative w-full bg-[url('/placeholder.svg')] bg-cover bg-center py-16 md:py-24">
+    <section className="relative w-full py-16 md:py-24">
+       <div className="absolute inset-0 z-0">
+        <Image
+          src={bgimg}
+          alt="Background Image"
+          layout="fill" // This makes the image cover the section
+          objectFit="cover" // Ensures the image is stretched and covers the section fully
+          objectPosition="center" // Centers the image
+        />
+      </div>
       {/* Background Overlay */}
-      <div className="absolute inset-0 bg-white/90" />
+      <div className="absolute inset-0" />
 
       {/* Content Container */}
       <div className="relative container mx-auto px-4">
@@ -53,7 +63,7 @@ function AboutUs({ data }: AboutUsProps) {
             </div>
             <div className="md:mt-2">
               <Link href={data.AboutBtn.url}>
-                <Button className="bg-red-600 hover:bg-red-700 text-white px-6 md:h-12 rounded-xl">
+                <Button className="bg-[#ED1B23] hover:bg-[#FFCB05] text-white px-6 md:h-12 rounded-xl">
                   {data.AboutBtn.text}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

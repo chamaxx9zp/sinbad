@@ -88,7 +88,7 @@ function OurProducts({ data }: OurProductsProps) {
                 </div>
                 <Link href={product.href}>
                   <Button 
-                    className="bg-red-600 hover:bg-red-700 text-white rounded-md"
+                    className="bg-[#ED1B23] hover:bg-[#FFCB05] text-white rounded-md"
                   >
                     {product.title === "Herbal Tea" ? product.title : "View More"}
                     <ArrowRight className="ml-2 h-5 w-5" />
