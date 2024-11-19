@@ -67,7 +67,7 @@ function OurProducts({ data }: OurProductsProps) {
             >
               {/* Product Image */}
               <Image
-                src={product.image}
+                src={product.image || ""}
                 alt={product.title}
                 fill
                 className="object-cover"
