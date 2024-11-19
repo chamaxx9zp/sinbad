@@ -1,9 +1,12 @@
+'use client'
 import React from 'react'
 import Image from "next/image"
 import Link from "next/link"
 import { Phone, Mail, MapPin } from 'lucide-react'
+import logo from '../../../../../sinbad assets/Sindbad Assets/logo.png'
 
-function Footer() {
+function Footer(data: any) {
+  console.dir(data)
   return (
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-12">
@@ -11,7 +14,7 @@ function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <Image
-              src="https://images.pexels.com/photos/416583/pexels-photo-416583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              src={logo}
               alt="Sindbad Logo"
               width={150}
               height={100}
@@ -92,7 +95,7 @@ function Footer() {
             <p className="mb-6 text-white/80">
               Lorem ipsum dolor sit amet. In labore exercita non dolorum corporis.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-4 flex">
               <input 
                 type="email" 
                 placeholder="Email" 
