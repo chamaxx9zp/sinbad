@@ -63,6 +63,16 @@ const populate = {
           },
         },
       },
+      BestSellerProduct: {
+        populate: {
+          picture: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+          BestSellerLink: {
+            populate: true,
+          },
+        },
+      },
     },
   },
   seo: {

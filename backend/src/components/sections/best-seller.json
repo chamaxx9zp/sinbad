@@ -1,12 +1,25 @@
 {
   "collectionName": "components_sections_best_sellers",
   "info": {
-    "displayName": "BestSeller"
+    "displayName": "BestSeller",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "BestSeller": {
       "type": "string"
+    },
+    "Headline": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "BestSellerProduct": {
+      "displayName": "BestSellerProduct",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.best-seller-product"
     }
   }
 }

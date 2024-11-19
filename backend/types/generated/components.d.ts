@@ -280,9 +280,16 @@ export interface SectionsBestSeller extends Schema.Component {
   collectionName: 'components_sections_best_sellers';
   info: {
     displayName: 'BestSeller';
+    description: '';
   };
   attributes: {
     BestSeller: Attribute.String;
+    Headline: Attribute.String;
+    Description: Attribute.Text;
+    BestSellerProduct: Attribute.Component<
+      'elements.best-seller-product',
+      true
+    >;
   };
 }
 
@@ -588,6 +595,19 @@ export interface ElementsFeatureColumn extends Schema.Component {
   };
 }
 
+export interface ElementsBestSellerProduct extends Schema.Component {
+  collectionName: 'components_elements_best_seller_products';
+  info: {
+    displayName: 'BestSellerProduct';
+  };
+  attributes: {
+    picture: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    BestSellerProductName: Attribute.String;
+    BestSellerProductNameTag: Attribute.String;
+    BestSellerLink: Attribute.Component<'links.button-link'>;
+  };
+}
+
 export interface ElementsAboutRow extends Schema.Component {
   collectionName: 'components_elements_about_rows';
   info: {
@@ -644,6 +664,7 @@ declare module '@strapi/types' {
       'elements.feature': ElementsFeature;
       'elements.feature-row': ElementsFeatureRow;
       'elements.feature-column': ElementsFeatureColumn;
+      'elements.best-seller-product': ElementsBestSellerProduct;
       'elements.about-row': ElementsAboutRow;
     }
   }

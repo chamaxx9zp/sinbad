@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_elements_best_seller_products",
+  "info": {
+    "displayName": "BestSellerProduct"
+  },
+  "options": {},
+  "attributes": {
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "BestSellerProductName": {
+      "type": "string"
+    },
+    "BestSellerProductNameTag": {
+      "type": "string"
+    },
+    "BestSellerLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.button-link"
+    }
+  }
+}
