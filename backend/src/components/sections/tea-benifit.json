@@ -1,12 +1,32 @@
 {
   "collectionName": "components_sections_tea_benifits",
   "info": {
-    "displayName": "TeaBenifit"
+    "displayName": "TeaBenifit",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "TeaBenifit": {
       "type": "string"
+    },
+    "TeaBenifitHading": {
+      "type": "string"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "TeaBenefitPoints": {
+      "displayName": "TeaBenefitPoints",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.tea-benefit-points"
     }
   }
 }

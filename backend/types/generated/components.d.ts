@@ -95,9 +95,13 @@ export interface SectionsTeaBenifit extends Schema.Component {
   collectionName: 'components_sections_tea_benifits';
   info: {
     displayName: 'TeaBenifit';
+    description: '';
   };
   attributes: {
     TeaBenifit: Attribute.String;
+    TeaBenifitHading: Attribute.String;
+    picture: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    TeaBenefitPoints: Attribute.Component<'elements.tea-benefit-points', true>;
   };
 }
 
@@ -447,6 +451,17 @@ export interface ElementsTestimonial extends Schema.Component {
   };
 }
 
+export interface ElementsTeaBenefitPoints extends Schema.Component {
+  collectionName: 'components_elements_tea_benefit_points';
+  info: {
+    displayName: 'TeaBenefitPoints';
+  };
+  attributes: {
+    TeaBenifitSubHeading: Attribute.String;
+    TeaBenefitDescription: Attribute.Text;
+  };
+}
+
 export interface ElementsProduct extends Schema.Component {
   collectionName: 'components_elements_products';
   info: {
@@ -668,6 +683,7 @@ declare module '@strapi/types' {
       'layout.logo': LayoutLogo;
       'layout.footer': LayoutFooter;
       'elements.testimonial': ElementsTestimonial;
+      'elements.tea-benefit-points': ElementsTeaBenefitPoints;
       'elements.product': ElementsProduct;
       'elements.product-gallery-row': ElementsProductGalleryRow;
       'elements.plan': ElementsPlan;

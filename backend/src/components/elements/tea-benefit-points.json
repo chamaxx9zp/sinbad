@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_tea_benefit_points",
+  "info": {
+    "displayName": "TeaBenefitPoints"
+  },
+  "options": {},
+  "attributes": {
+    "TeaBenifitSubHeading": {
+      "type": "string"
+    },
+    "TeaBenefitDescription": {
+      "type": "text"
+    }
+  }
+}

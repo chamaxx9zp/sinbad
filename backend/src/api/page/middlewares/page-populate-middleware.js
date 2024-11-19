@@ -80,6 +80,11 @@ const populate = {
           },
         },
       },
+      TeaBenefitPoints: {
+        populate: {
+          populate: true,
+        },
+      },
     },
   },
   seo: {
