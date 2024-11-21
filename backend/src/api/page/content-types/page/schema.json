@@ -44,7 +44,8 @@
         "sections.product-gallery",
         "sections.best-seller",
         "sections.featured-section",
-        "sections.tea-benifit"
+        "sections.tea-benifit",
+        "sections.product-hero"
       ],
       "pluginOptions": {
         "i18n": {

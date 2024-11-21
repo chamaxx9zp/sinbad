@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin } from 'lucide-react'
 import logo from '../../../../../sinbad assets/Sindbad Assets/logo.png'
 
 function Footer(data: any) {
-  console.dir(data)
+  // console.dir(data)
   return (
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-12">

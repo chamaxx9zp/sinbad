@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_product_heroes",
+  "info": {
+    "displayName": "ProductHero"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "PaginationSec": {
+      "type": "string"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
