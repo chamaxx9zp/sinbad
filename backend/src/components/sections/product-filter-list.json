@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_product_filter_lists",
+  "info": {
+    "displayName": "ProductFilterList"
+  },
+  "options": {},
+  "attributes": {
+    "ProductFilterList": {
+      "type": "string"
+    }
+  }
+}
