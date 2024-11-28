@@ -2,6 +2,7 @@ import LangRedirect from '../components/LangRedirect';
 import componentResolver from '../utils/component-resolver';
 import { getPageBySlug } from "@/app/[lang]/utils/get-page-by-slug";
 import ProductFilterList from '../components/ProductFilterList';
+import RelatedProducts from '../components/RelatedProducts';
 
 export default async function RootRoute({ params }: { params: { lang: string } }) {
     try {
@@ -46,11 +47,15 @@ export default async function RootRoute({ params }: { params: { lang: string } }
                 {contentSections.map((section: any, index: number) => {
                     if (section.__component === "sections.product-filter-list" ) {
                         return (
+                            <>
                             <ProductFilterList
                                 key={index}
                                 products={products} // Pass dynamic products data
                                 categories={productCategories.map((cat: any) => cat.name)} // Pass dynamic categories
                             />
+                            {/* <RelatedProducts products={products}/> */}
+                            </>
+                           
                         );
                     }
                     // Render other components dynamically
