@@ -1,8 +1,7 @@
 import LangRedirect from '../components/LangRedirect';
 import componentResolver from '../utils/component-resolver';
-import {getPageBySlug} from "@/app/[lang]/utils/get-page-by-slug";
+import { getPageBySlug } from "@/app/[lang]/utils/get-page-by-slug";
 import ProductFilterList from '../components/ProductFilterList';
-
 
 export default async function RootRoute({ params }: { params: { lang: string } }) {
     try {
@@ -20,7 +19,7 @@ export default async function RootRoute({ params }: { params: { lang: string } }
         // Fetch the product categories
         const res = await fetch(`http://localhost:1337/api/product-categories`, {
             headers: {
-                Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`, // Use your Strapi API token
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
             },
         });
         const productCategoriesResponse = await res.json();
@@ -28,13 +27,16 @@ export default async function RootRoute({ params }: { params: { lang: string } }
         
         const res_products = await fetch(`http://localhost:1337/api/products`, {
             headers: {
-                Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`, // Use your Strapi API token
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
             },
         });
         const productsResponse = await res_products.json();
-        const products = productsResponse.data || []; // Assuming data contains the categories
+        const products = productsResponse.data || []; // Assuming data contains the products
 
-        // console.log({productsResponse,productCategoriesResponse });
+        // Log data for debugging
+        // console.log("Product Categories:", productCategories);
+        // console.log("Products:", products);
+
         // Extract contentSections
         const contentSections = page.data[0].attributes.contentSections;
 
@@ -42,17 +44,12 @@ export default async function RootRoute({ params }: { params: { lang: string } }
         return (
             <>
                 {contentSections.map((section: any, index: number) => {
-                    // Handle HeroNav separately if required
-                    // console.log({ "sectionname" : section.__component});
-
                     if (section.__component === "sections.product-filter-list" ) {
-                        
                         return (
                             <ProductFilterList
                                 key={index}
-                                data={section} // Pass the relevant HeroNav data
-                                products={products} // Pass product categories
-                                productCategories={productCategories}
+                                products={products} // Pass dynamic products data
+                                categories={productCategories.map((cat: any) => cat.name)} // Pass dynamic categories
                             />
                         );
                     }
@@ -68,8 +65,3 @@ export default async function RootRoute({ params }: { params: { lang: string } }
         }
     }
 }
-
-
-
-
-

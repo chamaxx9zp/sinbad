@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_related_products",
+  "info": {
+    "displayName": "relatedProducts",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "RelatedProducts": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -46,7 +46,8 @@
         "sections.featured-section",
         "sections.tea-benifit",
         "sections.product-hero",
-        "sections.product-filter-list"
+        "sections.product-filter-list",
+        "sections.related-products"
       ],
       "pluginOptions": {
         "i18n": {

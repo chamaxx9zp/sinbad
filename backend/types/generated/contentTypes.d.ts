@@ -1073,7 +1073,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.featured-section',
         'sections.tea-benifit',
         'sections.product-hero',
-        'sections.product-filter-list'
+        'sections.product-filter-list',
+        'sections.related-products'
       ]
     > &
       Attribute.SetPluginOptions<{
